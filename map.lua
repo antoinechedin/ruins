@@ -1,4 +1,4 @@
-room_table = {6,0,3}
+room_table = {6,0,3,1,-1, 2,4,5,7}
 
 function get_map_at(x,y)
     -- Tile coordinate
@@ -15,6 +15,8 @@ function get_map_at(x,y)
     if map_id < 0 then return 0 end
 
     local room_id = room_table[map_id + 1]
+    if room_id < 0 then return 0 end
+    
     local room_x = flr(room_id % 8) * 16
     local room_y = flr(room_id / 8) * 16
     
