@@ -1,4 +1,6 @@
-Puzzle platformer game about moving the map tiles
+Puzzle platformer game about moving the map tiles in PICO-8
+
+Character controler and the overall game engine is greatly inspired by [Celeste 2](https://github.com/ExOK/Celeste2/)
 
 - [ ] Spawn player and world tiles
 - [ ] Collision system

@@ -14,8 +14,6 @@ input_run = 0
 
 
 function update_input()
-    input_run = btn(5)
-
     -- Axes
     local axis_x = (btn(1) and 1 or 0) - (btn(0) and 1 or 0)
     if axis_x ~= 0 and input_x == 0 then

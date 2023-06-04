@@ -1,6 +1,6 @@
 room_table = {6,0,3,1,-1, 2,4,5,7}
 
-function get_map_at(x,y)
+function tile_at(x,y)
     -- Tile coordinate
     x = flr(x/8)
     y = flr(y/8)
