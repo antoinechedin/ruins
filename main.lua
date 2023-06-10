@@ -36,7 +36,7 @@ function cursor.update(self)
 end
 
 function _init()
-	p = instantiate(player, 7*8, 4*8)
+	p = instantiate(player, 7*8, 14*8)
 end
 
 function approach(x,t,s)
@@ -64,7 +64,7 @@ end
 function _draw()
     if game_mode == 0 then
         cls(1)
-        camera(p.x - 64, p.y - 64)
+        --camera(p.x - 64, p.y - 64)
 
         rectfill(0,0,16 * 8 - 1, 16*8 - 1, 2)
         rectfill(16 * 8 - 1,0,16 * 16 - 1, 16*8 - 1, 3)

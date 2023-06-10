@@ -12,12 +12,13 @@ actor.hit_x = 0
 actor.hit_y = 0
 actor.hit_w = 8
 actor.hit_h = 8
+actor.facing = 1
 
 function actor.update()
 end
 
 function actor.draw(self)
-    spr(self.spr, self.x, self.y)
+    spr(self.spr, self.x, self.y, 1, 1, self.facing ~= 1)
 end
 
 function actor.move_x(self, x, on_collide)

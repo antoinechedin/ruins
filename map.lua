@@ -1,4 +1,4 @@
-room_table = {6,0,3,1,-1, 2,4,5,7}
+room_table = {0,6   ,3,1,-1, 2,4,5,7}
 
 function tile_at(x,y)
     -- Tile coordinate
