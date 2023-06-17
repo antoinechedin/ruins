@@ -47,6 +47,7 @@ end
 
 function _update()
 	update_input()
+    update_camera()
 
     --if consume_action_press() then
        -- game_mode = (game_mode + 1) % 2
@@ -56,7 +57,7 @@ function _update()
     if game_mode == 0 then
         
         for a in all(actors) do
-            if not input_action then
+            if not camera_transition then
                 a:update()
             end
         end

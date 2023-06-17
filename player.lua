@@ -1,13 +1,16 @@
 player = new_prefab(1)
 player.t_jump_grace = 0
 player.t_var_jump = 0
+player.auto_jump = false
 player.var_jump = false
 player.jump_speed = 0
 player.map_id = 0
 
 function player.init(self)
-    self.hit_x = 1
-    self.hit_y = 2
+    self.x += 4
+    self.y += 4
+    self.hit_x = -3
+    self.hit_y = -2
     self.hit_w = 6
     self.hit_h = 6
 
@@ -63,12 +66,13 @@ function player.update(self)
 
     -- Variable Jump
     if self.speed_y < 0 then
-        if self.var_jump and not input_jump then
+        if self.var_jump and (not input_jump and not self.auto_jump) then
             self.var_jump = false
             self.speed_y = -0.2
         end
     else
         self.var_jump = false
+        self.auto_jump = false
     end
 
     -- Jump
@@ -98,11 +102,17 @@ function player.update(self)
     if new_map_id ~= self.map_id then
         local map_x = new_map_id * 14 % 42
         local map_y = flr(new_map_id / 3) * 14
-        camera_x = map_x * 8 - 8
-        camera_y = map_y * 8 - 8
+        camera_target_x = map_x * 8 - 8
+        camera_target_y = map_y * 8 - 8
+        camera_transition = true
+        if self.var_jump then self.auto_jump = true end
     end
     self.map_id = new_map_id
 
     -- Debug
     --self.spr = 1 + max(sgn(self.jump_grace - 1), 0)
+end
+
+function player.draw(self)
+    spr(self.spr, self.x - 4, self.y - 4, 1, 1, self.facing ~= 1)
 end
