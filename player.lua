@@ -3,12 +3,18 @@ player.t_jump_grace = 0
 player.t_var_jump = 0
 player.var_jump = false
 player.jump_speed = 0
+player.map_id = 0
 
 function player.init(self)
     self.hit_x = 1
     self.hit_y = 2
     self.hit_w = 6
     self.hit_h = 6
+
+    self.map_id = get_map_id(self.x / 8, self.y / 8)
+    camera_x = -8
+    camera_y = -8
+
 end
 
 
@@ -85,6 +91,17 @@ function player.update(self)
     else
         self.spr = 1.9
     end
+
+
+    -- Camera
+    local new_map_id = get_map_id(self.x / 8, self.y / 8)
+    if new_map_id ~= self.map_id then
+        local map_x = new_map_id * 14 % 42
+        local map_y = flr(new_map_id / 3) * 14
+        camera_x = map_x * 8 - 8
+        camera_y = map_y * 8 - 8
+    end
+    self.map_id = new_map_id
 
     -- Debug
     --self.spr = 1 + max(sgn(self.jump_grace - 1), 0)

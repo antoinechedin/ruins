@@ -36,7 +36,7 @@ function cursor.update(self)
 end
 
 function _init()
-	p = instantiate(player, 7*8, 14*8)
+	p = instantiate(player, 7*8, 12*8)
 end
 
 function approach(x,t,s)
@@ -56,7 +56,9 @@ function _update()
     if game_mode == 0 then
         
         for a in all(actors) do
-            a:update()
+            if not input_action then
+                a:update()
+            end
         end
     end
 end
@@ -64,10 +66,11 @@ end
 function _draw()
     if game_mode == 0 then
         cls(1)
-        --camera(p.x - 64, p.y - 64)
+        -- camera(p.x - 64, p.y - 64)
+        camera(camera_x, camera_y)
 
-        rectfill(0,      0, 16 * 8 - 1, 16*8 - 1, 2)
-        rectfill(16 * 8, 0, 16 * 16 -1, 16*8 - 1, 3)
+        -- rectfill(0,      0, 16 * 8 - 1, 16*8 - 1, 2)
+        -- rectfill(16 * 8, 0, 16 * 16 -1, 16*8 - 1, 3)
 
         --map(32,0,0,0, 16, 16 )
         --map(48,0,16 * 8,0, 16, 16 )
@@ -76,8 +79,10 @@ function _draw()
         for a in all(actors) do
             a:draw()
         end
+
+        print(p.map_id, camera_x,camera_y)
     elseif game_mode == 1 then -- draw room
-        cls(1)
+        cls(2)
         camera(0, 0)
 
         local sprite_0 = 17
