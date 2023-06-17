@@ -62,7 +62,7 @@ end
 function actor.check_solid(self, ox, oy)
     for i = (ox + self.x + self.hit_x), (ox + self.x + self.hit_x + self.hit_w - 1) do
 		for j = (oy + self.y + self.hit_y), (oy + self.y + self.hit_y + self.hit_h - 1) do
-			if fget(tile_at(i, j), 0) then
+			if fget(tile_at(flr(i/8), flr(j/8)), 1) then
 				return true
 			end
 		end

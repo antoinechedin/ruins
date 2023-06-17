@@ -48,9 +48,9 @@ end
 function _update()
 	update_input()
 
-    if consume_action_press() then
-        game_mode = (game_mode + 1) % 2
-    end
+    --if consume_action_press() then
+       -- game_mode = (game_mode + 1) % 2
+    -- end
 
     if game_mode == 1 then cursor.update() end
     if game_mode == 0 then
@@ -66,8 +66,8 @@ function _draw()
         cls(1)
         --camera(p.x - 64, p.y - 64)
 
-        rectfill(0,0,16 * 8 - 1, 16*8 - 1, 2)
-        rectfill(16 * 8 - 1,0,16 * 16 - 1, 16*8 - 1, 3)
+        rectfill(0,      0, 16 * 8 - 1, 16*8 - 1, 2)
+        rectfill(16 * 8, 0, 16 * 16 -1, 16*8 - 1, 3)
 
         --map(32,0,0,0, 16, 16 )
         --map(48,0,16 * 8,0, 16, 16 )
@@ -86,6 +86,6 @@ function _draw()
             spr(sprite_id, 48 + (index-1) % 3 * 8, 48 + flr((index-1) / 3) * 8)
         end
         -- draw cursor
-        spr(2, 48 + cursor.index % 3 * 8, 48 + flr(cursor.index / 3) * 8)
+        spr(3, 48 + cursor.index % 3 * 8, 48 + flr(cursor.index / 3) * 8)
     end
 end

@@ -2,8 +2,8 @@ room_table = {0,6   ,3,1,-1, 2,4,5,7}
 
 function tile_at(x,y)
     -- Tile coordinate
-    x = flr(x/8)
-    y = flr(y/8)
+    --x = flr(x/8)
+    --y = flr(y/8)
 
     -- Map Coordinate
     local map_x = flr(x / 16)
@@ -33,7 +33,6 @@ function draw_map()
         local map_y = flr(map_id / 8) * 16
         local room_x = room_id * 16 % 128
         local room_y = flr(room_id / 8) * 16
-        map(room_x, room_y, map_x * 8, map_y * 8, 16, 16)
-
+        map(room_x, room_y, map_x * 8, map_y * 8, 16, 16, 1)
     end
 end

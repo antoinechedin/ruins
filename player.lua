@@ -78,12 +78,12 @@ function player.update(self)
     
     -- Sprite
     if not on_ground then
-        self.spr = 2
+        self.spr = 2.9
     elseif input_x ~= 0 then
-        self.spr += 0.25
+        self.spr += 0.333
         self.spr = 1 + (1 + self.spr) % 2
     else
-        self.spr = 1
+        self.spr = 1.9
     end
 
     -- Debug

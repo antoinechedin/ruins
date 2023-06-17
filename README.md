@@ -7,3 +7,8 @@ Character controler and the overall game engine is greatly inspired by [Celeste 
 - [ ] Character controller
 - [ ] Draw world tiles
 - [ ] Move world tiles
+
+## Sprite Flags
+  
+  0. Draw
+  1. Solid
